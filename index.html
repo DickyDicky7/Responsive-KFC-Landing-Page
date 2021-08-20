@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Responsive KFC Landing Page</title>
+</head>
+<body>
+        <section class="main">
+                <header>
+                        <a href="#"><img src="./img/logo.png" alt="logo" class="logo"></a>
+                        <div class="toggle"></div>
+                        <ul class="navigation">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Menu</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                        </ul>
+                </header>
+
+                <div class="content">
+                        <div class="text">
+                                <h2>Its Finger<br>Lickin <span>Good.</span></h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, a cupiditate molestias numquam mollitia, beatae quam assumenda minima modi odio eos suscipit praesentium excepturi perspiciatis placeat natus totam similique optio.</p>
+                                <a href="#" class="btn">Order Now</a>
+                        </div>
+                        <div class="slider">
+                                <div class="slides active">
+                                        <img src="./img/burger_fries.png" alt="burger_fries">
+                                </div>
+                                <div class="slides">
+                                        <img src="./img/french_fries.png" alt="french_fries">
+                                </div>
+                                <div class="slides">
+                                        <img src="./img/burger.png" alt="burger">
+                                </div>
+                                <div class="slides">
+                                        <img src="./img/fried_chicken.png" alt="fried_chicken">
+                                </div>
+                        </div>
+                </div>
+
+                <div class="footer">
+                        <ul class="sci">
+                                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                                <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        </ul>
+                        <div class="prevNext">
+                                <p>Always Fresh</p>
+                                <span class="prev"><ion-icon name="chevron-back-outline"></ion-icon></span>
+                                <span class="next"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+                        </div>
+                </div>
+        </section>
+</body>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <script> 
+                //*** Toggle ***
+                const menuToggle = document.querySelector('.toggle');
+                const navigation = document.querySelector('.navigation');
+                
+                menuToggle.onclick = () => {
+                        menuToggle.classList.toggle('active');
+                        navigation.classList.toggle('active');
+                };
+
+                //*** Slider ***
+                const slides = document.querySelectorAll('.slides');
+                const prev = document.querySelector('.prev');
+                const next = document.querySelector('.next');
+
+                let i = 0;
+
+                function activeSlide(n) {
+                        // slides.forEach(slide => {
+                        //         slide.classList.remove('active');
+                        //         slides[n].classList.add('active');
+                        // });
+                        for (slide of slides) {
+                                slide.classList.remove('active');
+                                slides[n].classList.add('active');
+                        };
+                };
+
+                next.onclick = () => {
+                        if (i === slides.length - 1) {
+                                i = 0;
+                                activeSlide(i)
+                        } else {
+                                i++;
+                                activeSlide(i)
+                        };
+                };
+
+                // prev.addEventListener('click', function() {
+                //         if (i === slides.length - 1) {
+                //                 i = 0;
+                //                 activeSlide(i)
+                //         } else {
+                //                 i++;
+                //                 activeSlide(i)
+                //         };
+                // });
+
+                prev.onclick = () => {
+                        if (i === 0) {
+                                i = slides.length - 1;
+                                activeSlide(i)
+                        } else {
+                                i--;
+                                activeSlide(i)
+                        };
+                };
+        </script>
+</html>
