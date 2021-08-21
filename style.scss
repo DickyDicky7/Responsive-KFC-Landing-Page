@@ -5,6 +5,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: 'Ubuntu', sans-serif;
+        user-select: none;
 }
 
 .main {
@@ -44,8 +45,22 @@
                                         position: relative;
                                         color: #fff;
                                         margin-left: 40px;
+                                        transition: 0.25s;
                                 }
                         }
+                }
+
+                .top-bottom-line {
+                        display: block;
+                        position: absolute;
+                        border-top: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transition: 0.25s;
+                        /*** Home Item's Properties In Navigation ***/
+                        top: 57px;
+                        left: 960px;
+                        width: 43px;
+                        height: 25px;
                 }
         }
 
@@ -197,6 +212,20 @@
                                         margin-right: 20px;
                                 }
                         }
+
+                        span.next {
+
+                                ion-icon {
+                                        animation: slide-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+                                }
+                        }
+
+                        span.prev {
+
+                                ion-icon {
+                                        animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+                                }
+                        }
                 }
         }
 }
@@ -265,6 +294,8 @@
                                         a {
                                                 font-size: 1.5em;
                                                 margin: 10px 0;
+                                                padding: 10px;
+                                                border-radius: 50px;
                                                 display: inline-block;
                                         }
                                 }
@@ -281,6 +312,18 @@
                                 justify-content: center;
                                 align-items: center;
                                 flex-direction: column;
+
+                                li {
+
+                                        a.active {
+                                                background: #fff;
+                                                color: #333;
+                                        }
+                                }
+                        }
+
+                        .top-bottom-line {
+                                display: none;
                         }
                 }
 
@@ -325,6 +368,10 @@
 
                         .toggle.active {
                                 right: 20px;
+                        }
+
+                        .top-bottom-line {
+                                display: none;
                         }
                 }
 
@@ -384,4 +431,23 @@
                 animation-timing-function: ease-out;
         }
 }
+
+@keyframes slide-right {
+        0% {
+                transform: translateX(-12px);
+        }
+        100% {
+                transform: translateX(12px);
+        }
+}
+
+@keyframes slide-left {
+        0% {
+                transform: translateX(12px);
+        }
+        100% {
+                transform: translateX(-12px);
+        }
+}
+      
       

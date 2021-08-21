@@ -5,6 +5,10 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .main {
@@ -64,6 +68,22 @@
   position: relative;
   color: #fff;
   margin-left: 40px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.main header .top-bottom-line {
+  display: block;
+  position: absolute;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  /*** Home Item's Properties In Navigation ***/
+  top: 57px;
+  left: 960px;
+  width: 43px;
+  height: 25px;
 }
 
 .main .content {
@@ -254,6 +274,16 @@
   margin-right: 20px;
 }
 
+.main .footer .prevNext span.next ion-icon {
+  -webkit-animation: slide-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+          animation: slide-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+}
+
+.main .footer .prevNext span.prev ion-icon {
+  -webkit-animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+          animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+}
+
 /*** Responsive ***/
 @media (max-width: 991px) {
   .main {
@@ -325,6 +355,8 @@
   .main header .navigation li a {
     font-size: 1.5em;
     margin: 10px 0;
+    padding: 10px;
+    border-radius: 50px;
     display: inline-block;
   }
   .main header .navigation.active {
@@ -347,6 +379,13 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .main header .navigation.active li a.active {
+    background: #fff;
+    color: #333;
+  }
+  .main header .top-bottom-line {
+    display: none;
   }
   .main .content {
     -webkit-box-orient: vertical;
@@ -383,6 +422,9 @@
   }
   .main header .toggle.active {
     right: 20px;
+  }
+  .main header .top-bottom-line {
+    display: none;
   }
   .main .content .text h2 {
     font-size: 3em;
@@ -474,6 +516,50 @@
             transform: scale(1);
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
+  }
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
+  }
+  100% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
+  }
+  100% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+  100% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+  100% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
   }
 }
 /*# sourceMappingURL=style.css.map */
